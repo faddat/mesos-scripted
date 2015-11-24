@@ -4,7 +4,7 @@ echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /e
 echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 apt-get update
-apt-get install oracle-java9-installer apt-transport-https git build-essential autoconf dh-autoreconf software-properties-common python-software-properties autotools-dev automake libsvn-dev libapr1 libapr1-dev libtool build-essential libltdl-dev libltdl7 libtool libtool-bin libtool-doc libtoolkit-perl libtools-logging-clojure libtools-macro-clojure python-dev python-boto libcurl4-nss-dev libsasl2-dev maven libapr1-dev libsvn-dev aptitude clang
+apt-get install oracle-java9-installer apt-transport-https git build-essential autoconf libaprutil1 libaprutil1-dbg libaprutil1-dev dh-autoreconf software-properties-common python-software-properties autotools-dev automake libsvn-dev libapr1 libapr1-dev libtool build-essential libltdl-dev libltdl7 libtool libtool-bin libtool-doc libtoolkit-perl libtools-logging-clojure libtools-macro-clojure python-dev python-boto libcurl4-nss-dev libsasl2-dev maven libapr1-dev libsvn-dev aptitude clang
 git clone https://git-wip-us.apache.org/repos/asf/mesos.git --depth=1
 wget -q http://debian.freelan.org/debian.freelan.org.key -O- | apt-key add -
 echo "deb http://debian.freelan.org/ jessie main" >> /etc/apt/sources.list
@@ -17,28 +17,7 @@ cd subversion-1.9.2
 ./configure
 make
 make install
-cd ~/
-wget http://mirrors.viethosting.vn/apache//apr/apr-1.5.2.tar.gz
-wget http://mirrors.viethosting.vn/apache//apr/apr-util-1.5.4.tar.gz
-wget http://mirrors.viethosting.vn/apache//apr/apr-iconv-1.2.1.tar.gz
-tar xvf apr-1.5.2.tar.gz
-cd apr-1.5.2
-./configure
-make
-make install
-cd ..
-tar xvf apr-util-1.5.4.tar.gz
-cd apr-util-1.5.4
-./configure
-make
-make install
-cd ..
-tar xvf apr-iconv-1.2.1.tar.gz
-cd apr-iconv-1.2.1
-./configure
-make
-make install
-cd mesos
+cd ~/mesos
 ./bootstrap
 mkdir build
 cd build
