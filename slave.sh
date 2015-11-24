@@ -17,6 +17,23 @@ cd subversion-1.9.2
 ./configure
 make
 make install
+cd ~/
+wget http://mirrors.viethosting.vn/apache//apr/apr-1.5.2.tar.gz
+wget http://mirrors.viethosting.vn/apache//apr/apr-util-1.5.4.tar.gz
+wget http://mirrors.viethosting.vn/apache//apr/apr-iconv-1.2.1.tar.gz
+tar xvf apr-1.5.2.tar.gz
+cd apr-1.5.2
+./configure
+make
+make install
+tar xvf apr-util-1.5.4.tar.gz
+./configure
+make
+make install
+tar xvf apr-iconv-1.2.1.tar.gz
+./configure
+make
+make install
 cd mesos
 ./bootstrap
 mkdir build
